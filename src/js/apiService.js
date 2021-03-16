@@ -18,10 +18,10 @@ refs.searchForm.addEventListener('submit', event => {
     })
 }, 1000)
 
-refs.btnNextPage.addEventListener('click', () => {
-    newsService.fetchImg().then(hits => {
-        updateImgsMarkup(hits)
-    })
+refs.btnNextPage.addEventListener('click', async () => {
+    const hits = await newsService.fetchImg('hits')
+    updateImgsMarkup(hits)
+
     window.scrollTo({ top: refs.galleryContainer.clientHeight, behavior: 'smooth' });
 } )
 
